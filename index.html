@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love 💗🎀</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 30px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      position: relative;
+    }
+
+    .photo {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 25px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: floatPhoto 5s ease-in-out infinite;
+    }
+
+    @keyframes floatPhoto {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Floating hearts and texts */
+    .floating {
+      position: fixed;
+      bottom: -50px;
+      font-size: 1.5rem;
+      color: #fff;
+      opacity: 0.7;
+      animation: floatUp 10s linear infinite;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Music button */
+    #music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    #music-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday My Love 💗🎀 🎉</h1>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="music-btn">🎶 Play Music</button>
+
+  <div class="message">
+    <p>Hey you 💗🎀.... How are you? So, it's your birthday eh. Happy Birthday my lady, i hope this birthday brings you a lot of joy and happiness, i hope you enjoy and smile a lot on this birthday, i hope everyone treats you well on your special day.</p>
+    
+    <img src="photo1.jpg" alt="Photo 1" class="photo">
+
+    <p>I..... I've been waiting for this day for a long time to wish you a happy birthday for the first time and give you something special as a gift tho I can't do much but i can surely wish you properly right? I just hope that you smile a lot and please never let that beautiful smile fade away cause you look way better when you're smiling.</p>
+    
+    <img src="photo2.jpg" alt="Photo 2" class="photo">
+
+    <p>It still feels like yesterday, i didn't even realise a year passed. I had a lot of plans to celebrate your birthday but ig I'm not lucky enough so yeah gotta do what i can. Thank you for everything that you ever did for me, you made my life a lot better like millions of times better than what it used to be, i started smiling more i started being happy i felt recognised and uk what no one ever treated me like you did, I'm so happy and i feel like I'm the luckiest person to have you in my life.</p>
+    
+    <img src="photo3.jpg" alt="Photo 3" class="photo">
+
+    <p>Now I won't make this way too long so yeah... Once again, happy birthday love. I love you and i always will <3💗🎀</p>
+    
+    <img src="photo4.jpg" alt="Photo 4" class="photo">
+  </div>
+
+  <script>
+    const messages = ["💗", "🎀", "❤️", "Happy Birthday 🎉", "I Love You 💕", "💓", "💞"];
+    
+    function createFloating() {
+      const el = document.createElement("div");
+      el.className = "floating";
+      el.innerText = messages[Math.floor(Math.random() * messages.length)];
+      el.style.left = Math.random() * window.innerWidth + "px";
+      el.style.fontSize = (Math.random() * 20 + 20) + "px";
+      el.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(el);
+
+      setTimeout(() => { el.remove(); }, 10000);
+    }
+
+    setInterval(createFloating, 800);
+
+    // Music autoplay + fallback button
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    // Try autoplay
+    window.addEventListener("load", async () => {
+      try {
+        await music.play();
+      } catch (e) {
+        // Autoplay blocked, show button
+        btn.style.display = "block";
+      }
+    });
+
+    // Button play
+    btn.addEventListener("click", () => {
+      music.play();
+      btn.style.display = "none";
+    });
+  </script>
+</body>
+</html>
